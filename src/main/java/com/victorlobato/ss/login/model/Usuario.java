@@ -1,18 +1,26 @@
 package com.victorlobato.ss.login.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Usuario {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String usuario;
     private String senha;
     private String papel;
 
     public Usuario(){}
+
+    public Usuario(String usuario, String senha, String papel) {
+        this.usuario = usuario;
+        this.senha = senha;
+        this.papel = papel;
+    }
 
     @Override
     public String toString() {
